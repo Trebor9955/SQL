@@ -37,10 +37,12 @@ SELECT SUM(price), AVG(price), MIN(price),
 MAX(price), COUNT(price) 
 FROM superstore
 CREATED A CHART SHOWING THE SUM,AVG,MAX,MIN, AND COUNT OF ALL DATA IN SUPERSTORE
+
 3.Write your own SQL query that will show a statistic about the price for items in the category of "Kitchen Supplies". 
 SELECT price FROM superstore
 WHERE category='Kitchen Supplies'
 THE PRICING OF THE CATERGORY KITCHEN SUPPLIES
+
 4.Come up with your own question about the data and try to answer it using SQL. Here I wanted to separate that prices showing items below 100 but above 30 avaliable for purchase.
 SELECT * FROM superstore
 WHERE price < 100 AND price > 30
