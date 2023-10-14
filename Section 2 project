@@ -1,0 +1,31 @@
+#Show all companies in the Technology industry as "acceptable", "good workplace", or "needing improvment" based on avg_employee_tenure.
+
+SELECT
+company_name,
+CASE 
+  WHEN avg_employee_tenure >= 5 THEN 'acceptable'
+  WHEN avg_employee_tenure >= 7 THEN 'good workplace'
+  ELSE 'needing improvment'
+END as employee_health
+FROM fortune_companies
+WHERE industry='Technology';
+
+#Which industries have an avg_revenue of over 200 million
+
+SELECT industry, ROUND(AVG(revenue),1) as avg_revenue_millions
+FROM fortune_companies
+GROUP BY industry
+HAVING avg_revenue_millions>=200
+
+#Show which companies offer both healthcare and maternity leave over 10 weeks
+
+SELECT company_name 
+FROM fortune_companies 
+WHERE healthcare_benefits=1
+AND maternity_leave_weeks>10;
+
+#Which company in technology offers the most PTO
+
+SELECT company_name, MAX(paid_time_off_days)
+FROM fortune_companies
+WHERE industry = 'Technology'
